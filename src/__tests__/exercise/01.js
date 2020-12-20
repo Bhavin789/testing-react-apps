@@ -28,6 +28,16 @@ test('counter increments and decrements when the buttons are clicked', () => {
 
   div.remove()
 
+  const clickEvent = new MouseEvent('click', {
+    bubbles: true,
+    cancelable: true,
+    button: 0,
+  })
+
+  increment.dispatchEvent(clickEvent)
+
+  expect(message.textContent).toBe('Current count: 1')
+
   // 🐨 create a div to render your component to (💰 document.createElement)
   //
   // 🐨 append the div to document.body (💰 document.body.append)
